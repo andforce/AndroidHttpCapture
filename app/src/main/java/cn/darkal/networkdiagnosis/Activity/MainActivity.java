@@ -163,52 +163,6 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
         navigationView.setNavigationItemSelectedListener(navigationItemListener);
         navigationView.getMenu().getItem(0).setChecked(true);
 
-//        if (savedInstanceState != null && savedInstanceState.getInt("tab") != 0) {
-//            switch (savedInstanceState.getInt("tab")) {
-//                case 1:
-//                    switchContent(WebViewFragment.getInstance());
-//                    break;
-//                case 2:
-//                    switchContent(NetworkFragment.getInstance());
-//                    break;
-//                case 3:
-//                    switchContent(PreviewFragment.getInstance());
-//                    break;
-//            }
-//        }
-
-//        fab.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//                //获取到手指处的横坐标和纵坐标
-//                int x = (int) motionEvent.getX();
-//                int y = (int) motionEvent.getY();
-//                switch (motionEvent.getAction()) {
-//                    case MotionEvent.ACTION_DOWN:
-//                        lastX = x;
-//                        lastY = y;
-//                        isMove = false;
-//                        break;
-//                    case MotionEvent.ACTION_MOVE:
-//                        //计算移动的距离
-//                        int offX = x - lastX;
-//                        int offY = y - lastY;
-//                        if (offX * offX + offY * offY < 400 && !isMove) {
-//                            break;
-//                        }
-//                        view.offsetLeftAndRight(offX);
-//                        view.offsetTopAndBottom(offY);
-//                        isMove = true;
-//                        break;
-//                    case MotionEvent.ACTION_UP:
-//                        if (!isMove) {
-//                            createPage();
-//                        }
-//                        break;
-//                }
-//                return true;
-//            }
-//        });
     }
 
     public void createPage() {
@@ -356,11 +310,9 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
             }
             if (id == R.id.nav_gallery) {
                 switchContent(WebViewFragment.getInstance());
-            }
-//            else if (id == R.id.nav_preview) {
-//                switchContent(PreviewFragment.getInstance());
-//            }
-            else if (id == R.id.nav_manage) {
+            } else if (id == R.id.nav_preview) {
+                switchContent(PreviewFragment.getInstance());
+            } else if (id == R.id.nav_manage) {
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
             } else if (id == R.id.nav_ua) {
