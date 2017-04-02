@@ -1,10 +1,10 @@
 package cn.darkal.networkdiagnosis;
 
+import android.app.Application;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
 import net.gotev.uploadservice.UploadService;
@@ -25,7 +25,7 @@ import java.util.Random;
 /**
  * Created by xuzhou on 2016/8/10.
  */
-public class SysApplication extends MultiDexApplication {
+public class SysApplication extends Application {
     public static Boolean isInitProxy = false;
     public static int proxyPort = 8888;
     public BrowserMobProxy proxy;
