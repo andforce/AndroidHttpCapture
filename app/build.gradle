@@ -27,10 +27,11 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.NetworkDiagnosis
+            debuggable true
         }
         debug {
             signingConfig signingConfigs.NetworkDiagnosis
