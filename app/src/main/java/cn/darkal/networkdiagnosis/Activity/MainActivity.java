@@ -10,7 +10,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.security.KeyChain;
@@ -26,7 +25,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,18 +34,13 @@ import android.view.ViewTreeObserver;
 import android.view.animation.OvershootInterpolator;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
-import net.gotev.uploadservice.ServerResponse;
-import net.gotev.uploadservice.UploadInfo;
-import net.gotev.uploadservice.UploadStatusDelegate;
 import net.lightbody.bmp.BrowserMobProxy;
 import net.lightbody.bmp.core.har.Har;
 import net.lightbody.bmp.core.har.HarPage;
@@ -66,16 +59,15 @@ import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.darkal.networkdiagnosis.adapter.FilterAdpter;
-import cn.darkal.networkdiagnosis.bean.PageBean;
-import cn.darkal.networkdiagnosis.fragment.BaseFragment;
-import cn.darkal.networkdiagnosis.fragment.BackHandledInterface;
-import cn.darkal.networkdiagnosis.fragment.PreviewFragment;
-import cn.darkal.networkdiagnosis.fragment.WebViewFragment;
 import cn.darkal.networkdiagnosis.R;
 import cn.darkal.networkdiagnosis.SysApplication;
+import cn.darkal.networkdiagnosis.adapter.FilterAdpter;
+import cn.darkal.networkdiagnosis.bean.PageBean;
+import cn.darkal.networkdiagnosis.fragment.BackHandledInterface;
+import cn.darkal.networkdiagnosis.fragment.BaseFragment;
+import cn.darkal.networkdiagnosis.fragment.PreviewFragment;
+import cn.darkal.networkdiagnosis.fragment.WebViewFragment;
 import cn.darkal.networkdiagnosis.utils.DeviceUtils;
-import cn.darkal.networkdiagnosis.utils.FileUtils;
 import cn.darkal.networkdiagnosis.utils.SharedPreferenceUtils;
 import cn.darkal.networkdiagnosis.utils.ZipUtils;
 import cn.darkal.networkdiagnosis.view.LoadingDialog;
@@ -646,47 +638,6 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
         createZip(runnable);
     }
 
-    public void uploadZip() {
-        showUploadDialog(this);
-    }
-
-    public class MyUploadDelegate implements UploadStatusDelegate {
-        @Override
-        public void onProgress(UploadInfo uploadInfo) {
-            Log.e("~~~~", uploadInfo.getProgressPercent() + "");
-        }
-
-        @Override
-        public void onError(UploadInfo uploadInfo, Exception exception) {
-            dismissLoading();
-            Snackbar.make(rootView, "上传失败！", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            exception.printStackTrace();
-        }
-
-        @Override
-        public void onCompleted(UploadInfo uploadInfo, ServerResponse serverResponse) {
-            try {
-                JSONObject jsonObject = new JSONObject(serverResponse.getBodyAsString());
-                if (jsonObject.getInt("errId") == 0) {
-                    Snackbar.make(rootView, "上传成功！", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                } else if (jsonObject.getInt("errId") == 2 || jsonObject.getInt("errId") == 11004) {
-                    Snackbar.make(rootView, "验证码错误！", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                    showUploadDialog(MainActivity.this);
-                } else {
-                    Snackbar.make(rootView, "上传失败！", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                }
-            } catch (Exception e) {
-                Snackbar.make(rootView, "上传失败！", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            }
-            dismissLoading();
-        }
-
-        @Override
-        public void onCancelled(UploadInfo uploadInfo) {
-            dismissLoading();
-        }
-    }
-
     private LoadingDialog loadingDialog;
 
     public void showLoading(String text) {
@@ -705,55 +656,6 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
             loadingDialog.dismiss();
             loadingDialog = null;
         }
-    }
-
-    //显示基于Layout的AlertDialog
-    private void showUploadDialog(Context context) {
-        LayoutInflater inflater = LayoutInflater.from(this);
-        View textEntryView = inflater.inflate(R.layout.alert_code, null);
-        final EditText edtInput = (EditText) textEntryView.findViewById(R.id.et_code);
-        final ImageView imageView = (ImageView) textEntryView.findViewById(R.id.iv_code);
-//        final String uuid = SystemBasicInfo.getUUID(this);
-
-        final String key = Math.random() + "";
-        Glide.with(this).load(CODE_URL + "?key=" + key + "&scene=2&t=" + Math.random()).into(imageView);
-
-        // 点击刷新验证码
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                edtInput.setText("");
-                Glide.with(MainActivity.this).load(CODE_URL + "?key=" + key + "&scene=2&t=" + Math.random()).into(imageView);
-            }
-        });
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setCancelable(true);
-        builder.setTitle("请输入验证码");
-        builder.setView(textEntryView);
-        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(edtInput.getWindowToken(), 0);
-                Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        String serverUrl = UPLOAD_URL + "?code=" + edtInput.getText() + "&os=Android&module=" + Build.MODEL.replace(" ", "") + "&key=" + key;
-                        showLoading("上传中");
-                        FileUtils.uploadFiles(MainActivity.this, new MyUploadDelegate(), serverUrl, "upload", Environment.getExternalStorageDirectory() + "/test.zip");
-                    }
-                };
-                createZip(runnable);
-            }
-        });
-
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(edtInput.getWindowToken(), 0);
-            }
-        });
-        builder.show();
     }
 
     public void showFilter(final Context context, final int type) {
@@ -812,13 +714,6 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
 
                     if (type == TYPE_SHARE) {
                         shareZip();
-                    }
-                    if (type == TYPE_UPLOAD) {
-                        if (selectedCount > 1 && entryCount > 1000) {
-                            Toast.makeText(context, "选择的请求总数过多,建议使用分享功能或减少选择",
-                                    Toast.LENGTH_LONG).show();
-                        }
-                        uploadZip();
                     }
                     alertDialog.dismiss();
                 } else {

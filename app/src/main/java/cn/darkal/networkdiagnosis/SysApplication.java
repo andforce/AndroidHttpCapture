@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
-import net.gotev.uploadservice.UploadService;
 import net.lightbody.bmp.BrowserMobProxy;
 import net.lightbody.bmp.BrowserMobProxyServer;
 import net.lightbody.bmp.proxy.CaptureType;
@@ -25,7 +25,7 @@ import java.util.Random;
 /**
  * Created by xuzhou on 2016/8/10.
  */
-public class SysApplication extends Application {
+public class SysApplication extends MultiDexApplication {
     public static Boolean isInitProxy = false;
     public static int proxyPort = 8888;
     public BrowserMobProxy proxy;
@@ -34,8 +34,6 @@ public class SysApplication extends Application {
     public void onCreate() {
         super.onCreate();
         initProxy();
-        // Gradle automatically generates proper variable as below.
-        UploadService.NAMESPACE = BuildConfig.APPLICATION_ID;
     }
 
     public void initProxy() {

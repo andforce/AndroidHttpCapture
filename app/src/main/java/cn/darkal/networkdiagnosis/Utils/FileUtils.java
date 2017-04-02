@@ -1,9 +1,5 @@
 package cn.darkal.networkdiagnosis.utils;
 
-import android.content.Context;
-
-import net.gotev.uploadservice.MultipartUploadRequest;
-import net.gotev.uploadservice.UploadStatusDelegate;
 
 /**
  * Created by xuzhou on 2016/8/16.
@@ -27,36 +23,4 @@ public class FileUtils {
 //    }
 
 
-    public static void uploadFiles(Context context, UploadStatusDelegate uploadStatusDelegate,String serverUrlString, String paramNameString, String filesToUploadString) {
-
-//        final String filesToUploadString = filesToUpload.getText().toString();
-        final String[] filesToUploadArray = filesToUploadString.split(",");
-
-        for (String fileToUploadPath : filesToUploadArray) {
-            try {
-//                final String filename = getFilename(fileToUploadPath);
-
-                MultipartUploadRequest req = new MultipartUploadRequest(context, serverUrlString)
-                        .addFileToUpload(fileToUploadPath, paramNameString).setMethod("POST")
-
-//                        .setNotificationConfig(getNotificationConfig(filename))
-//                        .setCustomUserAgent(USER_AGENT)
-//                        .setAutoDeleteFilesAfterSuccessfulUpload(autoDeleteUploadedFiles.isChecked())
-//                        .setUsesFixedLengthStreamingMode(fixedLengthStreamingMode.isChecked())
-                        .setMaxRetries(3);
-
-//                if (useUtf8.isChecked()) {
-//                    req.setUtf8Charset();
-//                }
-
-                req.setDelegate(uploadStatusDelegate).startUpload();
-
-
-
-                // these are the different exceptions that may be thrown
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }
