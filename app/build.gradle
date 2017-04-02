@@ -1,11 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
-apply plugin: 'bugly'
 
-bugly {
-    appId = 'db9f598223' // 注册时分配的App ID
-    appKey = '119ae85f-0c0b-485c-8ae2-da08e472b9e2' // 注册时分配的App Key
-}
 
 android {
     signingConfigs {
@@ -27,8 +22,6 @@ android {
         targetSdkVersion 22
         versionCode 25
         versionName "2.4.26"
-        // Enabling multidex support.
-        multiDexEnabled true
         resConfigs "zh"
         signingConfig signingConfigs.NetworkDiagnosis
     }
