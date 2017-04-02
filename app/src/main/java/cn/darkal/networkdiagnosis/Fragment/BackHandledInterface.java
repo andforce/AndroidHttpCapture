@@ -1,4 +1,4 @@
-package cn.darkal.networkdiagnosis.Fragment;
+package cn.darkal.networkdiagnosis.fragment;
 
 /**
  * Created by xuzhou on 2016/8/10.

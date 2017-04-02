@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
-import cn.darkal.networkdiagnosis.Utils.DatatypeConverter;
+import cn.darkal.networkdiagnosis.utils.DatatypeConverter;
 
 /**
  * 

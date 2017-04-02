@@ -1,4 +1,4 @@
-package cn.darkal.networkdiagnosis.Activity;
+package cn.darkal.networkdiagnosis.activity;
 
 
 import android.app.Activity;
@@ -22,9 +22,9 @@ import java.io.InputStream;
 
 import cn.darkal.networkdiagnosis.R;
 import cn.darkal.networkdiagnosis.SysApplication;
-import cn.darkal.networkdiagnosis.Utils.DeviceUtils;
-import cn.darkal.networkdiagnosis.Utils.SharedPreferenceUtils;
-import cn.darkal.networkdiagnosis.View.LoadingDialog;
+import cn.darkal.networkdiagnosis.utils.DeviceUtils;
+import cn.darkal.networkdiagnosis.utils.SharedPreferenceUtils;
+import cn.darkal.networkdiagnosis.view.LoadingDialog;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On

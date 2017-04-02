@@ -1,4 +1,4 @@
-package cn.darkal.networkdiagnosis.Activity;
+package cn.darkal.networkdiagnosis.activity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;

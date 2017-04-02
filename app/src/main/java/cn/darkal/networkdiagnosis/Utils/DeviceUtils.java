@@ -1,4 +1,4 @@
-package cn.darkal.networkdiagnosis.Utils;
+package cn.darkal.networkdiagnosis.utils;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -7,8 +7,6 @@ import android.util.Log;
 
 import net.lightbody.bmp.BrowserMobProxy;
 import net.lightbody.bmp.proxy.dns.AdvancedHostResolver;
-
-import cn.darkal.networkdiagnosis.SysApplication;
 
 /**
  * Created by Darkal on 2016/9/21.

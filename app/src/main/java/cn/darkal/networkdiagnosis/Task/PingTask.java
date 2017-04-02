@@ -1,4 +1,4 @@
-package cn.darkal.networkdiagnosis.Task;
+package cn.darkal.networkdiagnosis.task;
 
 import android.util.Log;
 import android.widget.TextView;

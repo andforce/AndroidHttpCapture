@@ -1,4 +1,4 @@
-package cn.darkal.networkdiagnosis.Utils;
+package cn.darkal.networkdiagnosis.utils;
 
 import android.content.Context;
 

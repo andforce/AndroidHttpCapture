@@ -161,7 +161,7 @@ public class TrustSource {
     /**
      * Returns a new TrustSource containing the same trusted CAs as this TrustSource, plus zero or more CAs contained in
      * the PEM-encoded File. The File may contain multiple certificates and may contain comments or other non-PEM-encoded
-     * text, as long as the PEM-encoded certificates are delimited by appropriate BEGIN_CERTIFICATE and END_CERTIFICATE
+     * text, as long as the PEM-encoded certificates are delimited by appropriate BEGIN_CERTIRFICATE and END_CERTIFICATE
      * text blocks. The file may contain UTF-8 characters, but the PEM-encoded certificate data itself must be US-ASCII.
      *
      * @param trustedCAPemFile File containing PEM-encoded certificates

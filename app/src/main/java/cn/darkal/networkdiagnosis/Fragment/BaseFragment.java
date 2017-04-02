@@ -1,10 +1,10 @@
-package cn.darkal.networkdiagnosis.Fragment;
+package cn.darkal.networkdiagnosis.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import cn.darkal.networkdiagnosis.Activity.MainActivity;
+import cn.darkal.networkdiagnosis.activity.MainActivity;
 
 /**
  * Created by xuzhou on 2016/8/10.

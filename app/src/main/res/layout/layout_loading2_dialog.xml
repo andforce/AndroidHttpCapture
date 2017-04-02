@@ -24,7 +24,7 @@
             android:layout_gravity="center"
             android:background="@drawable/refresh" />
 
-        <cn.darkal.networkdiagnosis.View.ProgressWheel
+        <cn.darkal.networkdiagnosis.view.ProgressWheel
             android:id="@+id/progressBar"
             android:layout_width="43dp"
             android:layout_height="43dp"

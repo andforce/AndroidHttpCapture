@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with TraceroutePing.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package cn.darkal.networkdiagnosis.Task;
+package cn.darkal.networkdiagnosis.task;
 
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;

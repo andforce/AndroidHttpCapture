@@ -1,4 +1,4 @@
-package cn.darkal.networkdiagnosis.Utils.NetInfo;
+package cn.darkal.networkdiagnosis.utils.NetInfo;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

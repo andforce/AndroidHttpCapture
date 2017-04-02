@@ -1,4 +1,4 @@
-package cn.darkal.networkdiagnosis.Receiver;
+package cn.darkal.networkdiagnosis.receiver;
 
 import android.app.admin.DeviceAdminReceiver;
 

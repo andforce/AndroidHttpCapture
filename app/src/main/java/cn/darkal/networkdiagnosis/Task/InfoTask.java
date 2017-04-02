@@ -1,10 +1,10 @@
-package cn.darkal.networkdiagnosis.Task;
+package cn.darkal.networkdiagnosis.task;
 
 import android.widget.TextView;
 
 
-import cn.darkal.networkdiagnosis.Utils.NetInfo.NetBasicInfo;
-import cn.darkal.networkdiagnosis.Utils.NetInfo.SystemBasicInfo;
+import cn.darkal.networkdiagnosis.utils.NetInfo.NetBasicInfo;
+import cn.darkal.networkdiagnosis.utils.NetInfo.SystemBasicInfo;
 
 /**
  * Created by xuzhou on 2016/8/1.

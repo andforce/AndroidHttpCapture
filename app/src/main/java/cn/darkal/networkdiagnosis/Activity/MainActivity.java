@@ -1,4 +1,4 @@
-package cn.darkal.networkdiagnosis.Activity;
+package cn.darkal.networkdiagnosis.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -44,7 +44,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
-import com.google.zxing.QrCodeScanActivity;
 
 import net.gotev.uploadservice.ServerResponse;
 import net.gotev.uploadservice.UploadInfo;
@@ -67,20 +66,19 @@ import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.darkal.networkdiagnosis.Adapter.FilterAdpter;
-import cn.darkal.networkdiagnosis.Bean.PageBean;
-import cn.darkal.networkdiagnosis.Fragment.BaseFragment;
-import cn.darkal.networkdiagnosis.Fragment.BackHandledInterface;
-import cn.darkal.networkdiagnosis.Fragment.NetworkFragment;
-import cn.darkal.networkdiagnosis.Fragment.PreviewFragment;
-import cn.darkal.networkdiagnosis.Fragment.WebViewFragment;
+import cn.darkal.networkdiagnosis.adapter.FilterAdpter;
+import cn.darkal.networkdiagnosis.bean.PageBean;
+import cn.darkal.networkdiagnosis.fragment.BaseFragment;
+import cn.darkal.networkdiagnosis.fragment.BackHandledInterface;
+import cn.darkal.networkdiagnosis.fragment.PreviewFragment;
+import cn.darkal.networkdiagnosis.fragment.WebViewFragment;
 import cn.darkal.networkdiagnosis.R;
 import cn.darkal.networkdiagnosis.SysApplication;
-import cn.darkal.networkdiagnosis.Utils.DeviceUtils;
-import cn.darkal.networkdiagnosis.Utils.FileUtils;
-import cn.darkal.networkdiagnosis.Utils.SharedPreferenceUtils;
-import cn.darkal.networkdiagnosis.Utils.ZipUtils;
-import cn.darkal.networkdiagnosis.View.LoadingDialog;
+import cn.darkal.networkdiagnosis.utils.DeviceUtils;
+import cn.darkal.networkdiagnosis.utils.FileUtils;
+import cn.darkal.networkdiagnosis.utils.SharedPreferenceUtils;
+import cn.darkal.networkdiagnosis.utils.ZipUtils;
+import cn.darkal.networkdiagnosis.view.LoadingDialog;
 
 /**
  * Created by xuzhou on 2016/8/10.
@@ -364,18 +362,13 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
                 Toast.makeText(MainActivity.this, "请等待程序初始化完成", Toast.LENGTH_LONG).show();
                 return true;
             }
-            if (id == R.id.nav_camera) {
-                Intent intent = new Intent(MainActivity.this, QrCodeScanActivity.class);
-                startActivity(intent);
-            } else if (id == R.id.nav_gallery) {
+            if (id == R.id.nav_gallery) {
                 switchContent(WebViewFragment.getInstance());
             }
 //            else if (id == R.id.nav_preview) {
 //                switchContent(PreviewFragment.getInstance());
 //            }
-            else if (id == R.id.nav_slideshow) {
-                switchContent(NetworkFragment.getInstance());
-            } else if (id == R.id.nav_manage) {
+            else if (id == R.id.nav_manage) {
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
             } else if (id == R.id.nav_ua) {

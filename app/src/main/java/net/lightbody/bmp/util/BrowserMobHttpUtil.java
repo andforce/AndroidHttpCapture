@@ -3,7 +3,7 @@ package net.lightbody.bmp.util;
 import com.google.common.net.HostAndPort;
 import com.google.common.net.MediaType;
 
-import cn.darkal.networkdiagnosis.Utils.DatatypeConverter;
+import cn.darkal.networkdiagnosis.utils.DatatypeConverter;
 import io.netty.buffer.ByteBuf;
 import io.netty.handler.codec.http.HttpHeaders;
 import io.netty.handler.codec.http.HttpRequest;

@@ -21,7 +21,7 @@ import io.netty.handler.ssl.util.SimpleTrustManagerFactory;
 import javax.net.ssl.ManagerFactoryParameters;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
-import cn.darkal.networkdiagnosis.Utils.X509ExtendedTrustManager;
+import cn.darkal.networkdiagnosis.utils.X509ExtendedTrustManager;
 import java.security.KeyStore;
 
 /**

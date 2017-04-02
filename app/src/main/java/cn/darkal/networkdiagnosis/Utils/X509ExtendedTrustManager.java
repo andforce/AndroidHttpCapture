@@ -1,4 +1,4 @@
-package cn.darkal.networkdiagnosis.Utils;
+package cn.darkal.networkdiagnosis.utils;
 
 /*
  * Copyright 2014 The Android Open Source Project

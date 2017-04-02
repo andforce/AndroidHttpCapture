@@ -31,7 +31,7 @@
             android:value="Github" />
 
         <activity
-            android:name="cn.darkal.networkdiagnosis.Activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
             android:launchMode="singleTask"
@@ -59,9 +59,6 @@
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.google.zxing.QrCodeScanActivity"
-            android:screenOrientation="portrait" />
 
         <service
             android:name="cn.darkal.networkdiagnosis.MyVpnService"
@@ -72,12 +69,12 @@
         </service>
 
         <activity
-            android:name="cn.darkal.networkdiagnosis.Activity.SettingsActivity"
+            android:name="cn.darkal.networkdiagnosis.activity.SettingsActivity"
             android:label="@string/title_activity_settings" />
 
         <!-- 引用xml策略声明 -->
         <receiver
-            android:name="cn.darkal.networkdiagnosis.Receiver.MyAdminReceiver"
+            android:name="cn.darkal.networkdiagnosis.receiver.MyAdminReceiver"
             android:description="@string/app_name"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
@@ -91,16 +88,12 @@
         </receiver>
 
         <activity
-            android:name="cn.darkal.networkdiagnosis.Activity.HarDetailActivity"
+            android:name="cn.darkal.networkdiagnosis.activity.HarDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
-            android:name="cn.darkal.networkdiagnosis.Activity.JsonPreviewActivity"
+            android:name="cn.darkal.networkdiagnosis.activity.JsonPreviewActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-
-        <activity
-            android:name="com.tencent.bugly.beta.ui.BetaActivity"
-            android:theme="@android:style/Theme.Translucent" />
     </application>
 
 </manifest>

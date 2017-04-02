@@ -1,4 +1,4 @@
-package cn.darkal.networkdiagnosis.Task;
+package cn.darkal.networkdiagnosis.task;
 
 import android.content.Context;
 import android.widget.TextView;
@@ -9,7 +9,7 @@ import com.netease.LDNetDiagnoService.LDNetDiagnoService;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import cn.darkal.networkdiagnosis.Utils.DeviceUtils;
+import cn.darkal.networkdiagnosis.utils.DeviceUtils;
 
 
 /**

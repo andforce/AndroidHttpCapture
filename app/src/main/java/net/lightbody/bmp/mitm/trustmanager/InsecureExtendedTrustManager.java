@@ -14,7 +14,7 @@ import javax.net.ssl.SSLEngine;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 
-import cn.darkal.networkdiagnosis.Utils.X509ExtendedTrustManager;
+import cn.darkal.networkdiagnosis.utils.X509ExtendedTrustManager;
 import io.netty.util.internal.EmptyArrays;
 
 /**

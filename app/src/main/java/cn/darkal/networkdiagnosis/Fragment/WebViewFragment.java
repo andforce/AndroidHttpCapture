@@ -1,18 +1,14 @@
-package cn.darkal.networkdiagnosis.Fragment;
+package cn.darkal.networkdiagnosis.fragment;
 
-import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -24,7 +20,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.ConsoleMessage;
 import android.webkit.DownloadListener;
 import android.webkit.WebChromeClient;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -36,12 +31,12 @@ import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.darkal.networkdiagnosis.Activity.MainActivity;
+import cn.darkal.networkdiagnosis.activity.MainActivity;
 import cn.darkal.networkdiagnosis.R;
 import cn.darkal.networkdiagnosis.SysApplication;
-import cn.darkal.networkdiagnosis.Utils.DeviceUtils;
-import cn.darkal.networkdiagnosis.Utils.ProxyUtils;
-import cn.darkal.networkdiagnosis.Utils.SharedPreferenceUtils;
+import cn.darkal.networkdiagnosis.utils.DeviceUtils;
+import cn.darkal.networkdiagnosis.utils.ProxyUtils;
+import cn.darkal.networkdiagnosis.utils.SharedPreferenceUtils;
 
 public class WebViewFragment extends BaseFragment {
     @BindView(R.id.fl_webview)

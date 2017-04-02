@@ -1,4 +1,4 @@
-package cn.darkal.networkdiagnosis.Fragment;
+package cn.darkal.networkdiagnosis.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,11 +20,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cn.darkal.networkdiagnosis.Activity.HarDetailActivity;
-import cn.darkal.networkdiagnosis.Activity.MainActivity;
+import cn.darkal.networkdiagnosis.activity.HarDetailActivity;
+import cn.darkal.networkdiagnosis.activity.MainActivity;
 import cn.darkal.networkdiagnosis.R;
 import cn.darkal.networkdiagnosis.SysApplication;
-import cn.darkal.networkdiagnosis.View.RecycleViewDivider;
+import cn.darkal.networkdiagnosis.view.RecycleViewDivider;
 
 public class PreviewFragment extends BaseFragment {
 

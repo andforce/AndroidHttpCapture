@@ -18,3 +18,19 @@ file=/Users/diyuanwang/MyGithub/AndroidHttpCapture/app/build/outputs/mapping/rel
 sha1=f053b7e1819c0d248d174255c6bf9da5a13fb810
 appId=db9f598223
 
+file=/Users/diyuanwang/MyGithub/AndroidHttpCapture/app/build/outputs/mapping/release/mapping.txt
+sha1=f053b7e1819c0d248d174255c6bf9da5a13fb810
+appId=db9f598223
+
+file=/Users/diyuanwang/MyGithub/AndroidHttpCapture/app/build/outputs/mapping/release/mapping.txt
+sha1=2e904da88853f023cd0ec7bda9b2ee99426a6532
+appId=db9f598223
+
+file=/Users/diyuanwang/MyGithub/AndroidHttpCapture/app/build/outputs/mapping/release/mapping.txt
+sha1=b14e30d3fbe7398ccf38a19834de30850d18e3b6
+appId=db9f598223
+
+file=/Users/diyuanwang/MyGithub/AndroidHttpCapture/app/build/outputs/mapping/release/mapping.txt
+sha1=3d6f7284f31bbbf672f6e488d6ade9e2776b47e4
+appId=db9f598223
+

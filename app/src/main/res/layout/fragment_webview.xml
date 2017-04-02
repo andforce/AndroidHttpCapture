@@ -21,7 +21,7 @@
         android:layout_height="40dp"
         android:text="GO"/>
 
-    <cn.darkal.networkdiagnosis.View.ClearTextView
+    <cn.darkal.networkdiagnosis.view.ClearTextView
         android:layout_marginLeft="5dp"
         android:id="@+id/et_url"
         android:layout_toLeftOf="@id/bt_jump"

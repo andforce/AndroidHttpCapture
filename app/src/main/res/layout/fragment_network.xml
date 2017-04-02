@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <cn.darkal.networkdiagnosis.View.ClearTextView
+    <cn.darkal.networkdiagnosis.view.ClearTextView
         android:id="@+id/et_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package cn.darkal.networkdiagnosis.View;
+package cn.darkal.networkdiagnosis.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
