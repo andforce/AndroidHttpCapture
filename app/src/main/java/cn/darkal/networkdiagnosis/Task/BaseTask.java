@@ -22,11 +22,7 @@ public abstract class BaseTask {
         tag = System.currentTimeMillis()+"";
         resultTextView.setTag(tag);
         // TraceTask运行于主线程
-        if(this instanceof TraceTask){
-            getExecRunnable().run();
-        }else {
-            new Thread(getExecRunnable()).start();
-        }
+        new Thread(getExecRunnable()).start();
     }
 
     public class updateResultRunnable implements Runnable{
