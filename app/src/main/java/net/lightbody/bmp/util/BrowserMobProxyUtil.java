@@ -7,8 +7,8 @@ import net.lightbody.bmp.core.har.HarEntry;
 import net.lightbody.bmp.core.har.HarLog;
 import net.lightbody.bmp.core.har.HarPage;
 import net.lightbody.bmp.mitm.exception.UncheckedIOException;
-import net.sf.uadetector.UserAgentStringParser;
-import net.sf.uadetector.service.UADetectorServiceFactory;
+//import net.sf.uadetector.UserAgentStringParser;
+//import net.sf.uadetector.service.UADetectorServiceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +35,7 @@ public class BrowserMobProxyUtil {
     /**
      * Singleton User Agent parser.
      */
-    private static volatile UserAgentStringParser parser;
+//    private static volatile UserAgentStringParser parser;
 
     /**
      * Singleton version string loader.
@@ -49,24 +49,24 @@ public class BrowserMobProxyUtil {
 
     private static final Object PARSER_INIT_LOCK = new Object();
 
-    /**
-     * Retrieve the User Agent String Parser. Create the parser if it has not yet been initialized.
-     * 
-     * @return singleton UserAgentStringParser object
-     */
-    public static UserAgentStringParser getUserAgentStringParser() {
-        if (parser == null) {
-            synchronized (PARSER_INIT_LOCK) {
-                if (parser == null) {
-                    // using resourceModuleParser for now because user-agent-string.info no longer exists. the updating
-                    // parser will get incorrect data and wipe out its entire user agent repository.
-                    parser = UADetectorServiceFactory.getResourceModuleParser();
-                }
-            }
-        }
-
-        return parser;
-    }
+//    /**
+//     * Retrieve the User Agent String Parser. Create the parser if it has not yet been initialized.
+//     *
+//     * @return singleton UserAgentStringParser object
+//     */
+//    public static UserAgentStringParser getUserAgentStringParser() {
+//        if (parser == null) {
+//            synchronized (PARSER_INIT_LOCK) {
+//                if (parser == null) {
+//                    // using resourceModuleParser for now because user-agent-string.info no longer exists. the updating
+//                    // parser will get incorrect data and wipe out its entire user agent repository.
+//                    parser = UADetectorServiceFactory.getResourceModuleParser();
+//                }
+//            }
+//        }
+//
+//        return parser;
+//    }
 
     /**
      * Copies {@link HarEntry} and {@link HarPage} references from the specified har to a new har copy, up to and including
