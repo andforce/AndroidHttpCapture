@@ -315,8 +315,6 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
             } else if (id == R.id.nav_manage) {
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
-            } else if (id == R.id.nav_ua) {
-                showUaDialog();
             } else if (id == R.id.nav_cosole) {
                 showLogDialog();
             } else if (id == R.id.nav_host) {
@@ -800,43 +798,6 @@ public class MainActivity extends AppCompatActivity implements BackHandledInterf
         });
     }
 
-    private String[] uaItem = new String[]{"手机浏览器", "微信环境", "手Q环境"};
-
-    public void showUaDialog() {
-        DialogInterface.OnClickListener buttonListener = new ButtonOnClick();
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        String selected = SharedPreferenceUtils.getString(this, "select_ua", "0");
-        int pos;
-        try {
-            pos = Integer.parseInt(selected);
-        } catch (NumberFormatException e) {
-            pos = -1;
-        }
-        builder.setTitle("环境切换");
-        builder.setSingleChoiceItems(uaItem, pos, buttonListener);
-        builder.setPositiveButton("确认", buttonListener);
-        builder.setNegativeButton("取消", buttonListener);
-        builder.create().show();
-    }
-
-    private class ButtonOnClick implements DialogInterface.OnClickListener {
-
-        private int index = -1; // 表示选项的索引
-
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            if (which >= 0) {
-                index = which;
-            } else {
-                //用户单击的是【确定】按钮
-                if (which == DialogInterface.BUTTON_POSITIVE) {
-                    SharedPreferenceUtils.putString(MainActivity.this, "select_ua", index + "");
-                    WebViewFragment.getInstance().setUserAgent();
-                }
-            }
-        }
-    }
 
     public void showLogDialog(){
         View textEntryView = LayoutInflater.from(this).inflate(R.layout.alert_textview, null);

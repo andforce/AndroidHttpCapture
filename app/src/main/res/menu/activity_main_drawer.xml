@@ -24,10 +24,6 @@
             android:title="高级功能">
             <menu>
                 <item
-                    android:id="@+id/nav_ua"
-                    android:icon="@drawable/ic_style_black_24dp"
-                    android:title="环境切换" />
-                <item
                     android:id="@+id/nav_cosole"
                     android:icon="@drawable/ic_assignment_black_24dp"
                     android:title="查看Console.log" />
